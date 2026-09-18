@@ -91,12 +91,14 @@ class Words(LongTableMixin, Values):
                     get_object=lambda v: v.valueset.parameter,
                     model_col=common.Parameter.description),
                 LinkCol(self, 'name', sTitle=self.req._('Word')),
+                Col(self, 'orthography', sTitle=self.req._('Orthography')),
                 Col(self, 'description', sTitle=self.req._('Segments')),
                 AudioCol(self, '#', bSearchable=False, bSortable=False),
             ]
         elif self.parameter:
             return [
                 LinkCol(self, 'name', sTitle=self.req._('Word')),
+                Col(self, 'orthography', sTitle=self.req._('Orthography')),
                 Col(self, 'description', sTitle=self.req._('Segments')),
                 LinkCol(self, 'language', sTitle=self.req._('Language'),
                         model_col=common.Language.name,
@@ -106,6 +108,7 @@ class Words(LongTableMixin, Values):
             ]
         return [
             LinkCol(self, 'name', sTitle=self.req._('Word')),
+            Col(self, 'orthography', sTitle=self.req._('Orthography')),
             LinkCol(self,
                     'name',
                     sTitle=self.req._('English'),
